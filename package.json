@@ -1,0 +1,25 @@
+{
+  "name": "tagfix",
+  "productName": "TagFix",
+  "version": "1.0.0",
+  "description": "TagFix - corrige preços em imagens de cardápio mantendo o visual original",
+  "main": "main.js",
+  "author": "Cafe Brasil Bakery",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.cafebrasil.tagfix",
+    "productName": "TagFix",
+    "files": ["main.js", "package.json", "app/**/*"],
+    "icon": "build/icon.png",
+    "mac": { "target": "dmg", "category": "public.app-category.graphics-design", "identity": null },
+    "win": { "target": "nsis" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}

@@ -1,0 +1,31 @@
+name: Gerar instaladores do TagFix
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - name: Gerar instalador Windows
+        if: matrix.os == 'windows-latest'
+        run: npx electron-builder --win --x64 --publish never
+      - name: Gerar instalador Mac
+        if: matrix.os == 'macos-latest'
+        run: npx electron-builder --mac --x64 --arm64 --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TagFix-${{ matrix.os }}
+          path: |
+            dist/*.exe
+            dist/*.dmg

@@ -1,0 +1,12 @@
+TagFix para computador (Windows e Mac)
+======================================
+1. Crie um repositório novo no GitHub (ex.: tagfix-desktop) e envie TODO o conteúdo desta pasta
+   (package.json, main.js, a pasta app, a pasta build, .gitignore).
+2. No GitHub: Add file > Create new file. No nome do arquivo digite:  .github/workflows/build.yml
+   Cole dentro o conteúdo do arquivo github-workflow/build.yml e clique em Commit.
+3. Aba Actions > "Gerar instaladores do TagFix" > Run workflow.
+4. Em ~5-10 minutos, abra a execução concluída e baixe os arquivos em "Artifacts":
+   - TagFix-windows-latest  -> instalador .exe
+   - TagFix-macos-latest    -> arquivo .dmg
+Observação: os programas não são assinados; na primeira abertura o Windows/Mac mostra um aviso
+(Windows: "Mais informações" > "Executar assim mesmo". Mac: clique direito no app > Abrir).
